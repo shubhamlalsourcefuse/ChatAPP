@@ -1,0 +1,22 @@
+{
+    "defaultEnv": "master",
+    "master": {
+      "driver": "pg",
+      "host": {
+        "ENV": "CHATAPPMESSAGE_DB_HOST"
+      },
+      "port": {
+        "ENV": "CHATAPPMESSAGE_DB_PORT"
+      },
+      "user": {
+        "ENV": "CHATAPPMESSAGE_DB_USER"
+      },
+      "password": {
+        "ENV": "CHATAPPMESSAGE_DB_PASSWORD"
+      },
+      "database": {
+        "ENV": "CHATAPPMESSAGE_DB_DATABASE"
+      }
+    },
+    "sql-file": true
+}
