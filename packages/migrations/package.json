@@ -12,7 +12,10 @@
         "db:migrate-reset:authentication": "db-migrate reset --config 'authentication/database.json' -m 'authentication/migrations'",
         "db:migrate:chatappmessage": "db-migrate up --config 'chatappmessage/database.json' -m 'chatappmessage/migrations'",
         "db:migrate-down:chatappmessage": "db-migrate down --config 'chatappmessage/database.json' -m 'chatappmessage/migrations'",
-        "db:migrate-reset:chatappmessage": "db-migrate reset --config 'chatappmessage/database.json' -m 'chatappmessage/migrations'"
+        "db:migrate-reset:chatappmessage": "db-migrate reset --config 'chatappmessage/database.json' -m 'chatappmessage/migrations'",
+        "db:migrate:chatservice": "db-migrate up --config 'chatservice/database.json' -m 'chatservice/migrations'",
+        "db:migrate-down:chatservice": "db-migrate down --config 'chatservice/database.json' -m 'chatservice/migrations'",
+        "db:migrate-reset:chatservice": "db-migrate reset --config 'chatservice/database.json' -m 'chatservice/migrations'"
     },
     "author": "",
     "license": "ISC",

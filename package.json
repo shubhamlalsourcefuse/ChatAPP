@@ -20,5 +20,9 @@
     "commitizen": {
       "path": "./node_modules/cz-customizable"
     }
+  },
+  "dependencies": {
+    "@oclif/config": "^1.18.8",
+    "@sourceloop/cli": "^3.0.12"
   }
 }
