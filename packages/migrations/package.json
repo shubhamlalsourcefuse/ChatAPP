@@ -15,7 +15,10 @@
         "db:migrate-reset:chatappmessage": "db-migrate reset --config 'chatappmessage/database.json' -m 'chatappmessage/migrations'",
         "db:migrate:chatservice": "db-migrate up --config 'chatservice/database.json' -m 'chatservice/migrations'",
         "db:migrate-down:chatservice": "db-migrate down --config 'chatservice/database.json' -m 'chatservice/migrations'",
-        "db:migrate-reset:chatservice": "db-migrate reset --config 'chatservice/database.json' -m 'chatservice/migrations'"
+        "db:migrate-reset:chatservice": "db-migrate reset --config 'chatservice/database.json' -m 'chatservice/migrations'",
+        "db:migrate:notification-service": "db-migrate up --config 'notification-service/database.json' -m 'notification-service/migrations'",
+        "db:migrate-down:notification-service": "db-migrate down --config 'notification-service/database.json' -m 'notification-service/migrations'",
+        "db:migrate-reset:notification-service": "db-migrate reset --config 'notification-service/database.json' -m 'notification-service/migrations'"
     },
     "author": "",
     "license": "ISC",
