@@ -25,6 +25,7 @@ module.exports = {
   ],
 
   scopes: [
+{name: 'main-facade-facade'}, 
 {name: 'notification-service-service'},
 {name: 'chatservice-service'}, 
 {name: 'chatapp-facade'}, 

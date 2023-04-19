@@ -1,0 +1,328 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "main-facade",
+    "version": "1.0.0",
+    "description": "main-facade",
+    "contact": {
+      "name": "Shubham Lal",
+      "email": "shubham.lal@sourcefuse.com"
+    }
+  },
+  "paths": {
+    "/login": {
+      "post": {
+        "x-controller-name": "AuthController",
+        "x-operation-name": "login",
+        "tags": [
+          "AuthController"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Return value of AuthController.login",
+            "content": {}
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "operationId": "AuthController.login"
+      }
+    },
+    "/messages/recipit/{id}": {
+      "patch": {
+        "x-controller-name": "ChatMessageController",
+        "x-operation-name": "updateRecipit",
+        "tags": [
+          "ChatMessageController"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Return value of ChatMessageController.updateRecipit",
+            "content": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Chat Message Recipit"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          },
+          "x-parameter-index": 2
+        },
+        "operationId": "ChatMessageController.updateRecipit"
+      }
+    },
+    "/messages/{id}": {
+      "delete": {
+        "x-controller-name": "ChatMessageController",
+        "x-operation-name": "deleteMessage",
+        "tags": [
+          "ChatMessageController"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Return value of ChatMessageController.deleteMessage",
+            "content": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "operationId": "ChatMessageController.deleteMessage"
+      }
+    },
+    "/messages": {
+      "post": {
+        "x-controller-name": "ChatMessageController",
+        "x-operation-name": "sendMessage",
+        "tags": [
+          "ChatMessageController"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Return value of ChatMessageController.sendMessage",
+            "content": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Chat Message Request"
+              }
+            }
+          },
+          "description": "",
+          "x-parameter-index": 1
+        },
+        "operationId": "ChatMessageController.sendMessage"
+      },
+      "get": {
+        "x-controller-name": "ChatMessageController",
+        "x-operation-name": "getMessage",
+        "tags": [
+          "ChatMessageController"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Return value of ChatMessageController.getMessage",
+            "content": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "channelId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "operationId": "ChatMessageController.getMessage"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "description": "",
+        "operationId": "PingController.ping"
+      }
+    },
+    "/": {
+      "get": {
+        "x-controller-name": "HomePageController",
+        "x-operation-name": "homePage",
+        "tags": [
+          "HomePageController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Home Page",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "description": "",
+        "operationId": "HomePageController.homePage"
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Chat Message Recipit": {
+        "type": "object",
+        "title": "Chat Message Recipit",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "recipientId": {
+            "type": "string"
+          },
+          "messageId": {
+            "type": "string"
+          },
+          "isRead": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Chat Message Request": {
+        "type": "object",
+        "title": "Chat Message Request",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "required": [
+              "no"
+            ]
+          },
+          "body": {
+            "type": "string"
+          },
+          "toUserId": {
+            "type": "string"
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "channelType": {
+            "type": "string"
+          }
+        }
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ]
+}
